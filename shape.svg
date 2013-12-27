@@ -1,0 +1,9 @@
+<svg id="blog_image"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="500" height="487px" >
+    <clipPath id="menuScaevaPath">
+      <polygon points="0,100 50,200 150,200 200,100 150,0 50,0" transform="translate(200,200) scale(0.5, 0.433)" />
+    </clipPath>
+    <clipPath id="menuScaevaPath2">
+      <polygon points="0,200 0,200 50,20 20,100 150,0 50,0" transform="translate(200,200) scale(0.5, 0.433)" />
+    </clipPath>
+    <polygon id="poly" points="0,100 50,200 150,200 200,100 150,0 50,0" transform="translate(200,200) scale(0.5, 0.433)" />
+</svg>

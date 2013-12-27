@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <script type="text/javascript" src="./jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="./jquery.svg.min.js"></script>
+  <script type="text/javascript" src="./jquery.svgdom.min.js"></script>
+  <script type="text/javascript" src="./jquery.svganim.min.js"></script>
+  <script type="text/javascript" src="./static/js/processing-1.4.1.min.js"></script>
+  <script type="text/javascript" src="./jquery.text-effects.tumulte.js"></script>
+	<title>Tumulte</title>
+  <link rel="stylesheet"  href="style.css" type="text/css" />
+	
+</head>
+<body>
+  <img alt="this is Tumulte" src="./tumulte_s.jpg" id="me"/>
+  <h1 id="main_title">TUMULTE</h1>
+  <canvas id="logo" datasrc="./static/js/logo.js" width="200" height="200"></canvas>
+  <nav id="main_nav">
+    <ul id="main_nav_list">
+      <li data-menu="menu_path1" class="main_nav_item bullet_less"><a href="#">BLOG</a></li>
+        <li data-menu="menu_path2" class="main_nav_item bullet_less"><a href="#">CONTRIBUTIONS</a></li>
+          <li data-menu="menu_path3" class="main_nav_item bullet_less"><a href="#">AUTRE</a></li>
+    </ul>
+  </nav>
+  <div class="font_layout font_bg">
+  \=777+\8\+
+  <br/>
+  \8\7777877777
+  <br/>
+  \8777778\=7=
+  <br/>
+  \+777778\8\8\
+  <br/>
+  \7777=\8\8\+
+  <br/>
+  \=7=78\8\8
+  <br/>
+  \+\+\8\+\+
+  <br/>
+  77777+
+  </div>
+  <div class="font_layout font_grid">
+  0)777°0@0°7°0@07770@0@0
+  <br/>
+  0@07777@7
+  <br/>
+  0@77777@0)7)7)
+  <br/>
+  0°77777@0@0@0@
+  <br/>
+  07777)0@^9^9^@0
+  <br/>
+  0)7)7@^9^9^@0@0
+  <br/>
+  0@0@0@0@0@0@0@0@0@0
+  <br/>
+  777°0@0@070@0@0@0@0
+  <br/>
+  77770@0777770@0@0
+  </div>
+  <div class="font_layout path" id="menu_path1">
+    7777
+    <br/>
+    7777
+    <br/>
+    7777
+    <br/>
+    777777777777
+    <br/>
+    7777777777773|3
+    <br/>
+    77777777773#
+    <br/>
+    777|773#2#
+    <br/>
+    77172#
+    <br/>
+  </div>
+  <div class="font_layout path" id="menu_path2">
+    7
+    <br/>
+    7
+    <br/>
+    7777777777777|
+    <br/>
+    77777777777²1
+    <br/>
+    7777777777^
+    <br/>
+    7777777²1[
+    <br/>
+    777777^
+    <br/>
+    777|3#
+    <br/>
+  </div>
+  <div class="font_layout path glow" id="menu_path3">
+    7
+    <br/>
+    7
+    <br/>
+    7
+    <br/>
+    77777777777|3#
+    <br/>
+    777777777²^
+    <br/>
+    77777777^
+    <br/>
+    7777777²1
+    <br/>
+    777777^
+    <br/>
+    77773#
+    <br/>
+    7
+  </div>
+  <div id="article_main_hexa" class="font_layout font_bg">
+    <svg id="blog_image"  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+      width="500" height="487px" >
+      <clipPath id ="menuScaevaPathAlt">
+        <polygon fill="none" stroke="red" stroke-width="1" points="50,50 50,101 101,101 101,50 " transform="rotate(45,75,75)"/>
+      </clipPath>
+    <clipPath id="menuScaevaPath">
+      <polygon points="0,100 50,200 150,200 200,100 150,0 50,0" transform="translate(200,200) scale(0.42, 0.356)" />
+    </clipPath>
+    <image id="menuScaevaImage" clip-path="url(#menuScaevaPath)" preserveAspectRatio="none" width="100%" height="100%" xlink:href="bunker.JPG"/>
+  </svg>
+    <span class="second_circle">7@0@</span>
+    <br/>
+    <span class="second_circle">0</span><span class="first_circle">@0@</span><span class="second_circle">0</span>
+    <br/>
+    <span class="second_circle">0</span><span class="first_circle">@0@</span><span class="second_circle">0</span>
+    </br>
+    <span class="second_circle">0</span><span class="first_circle">@0@</span><span class="second_circle">0</span>
+    </br>
+    <span class="second_circle">7@0@</span>
+  </div>
+
+
+   <script type="text/javascript">
+   $(function(){
+      var circleChars = new Array(2);
+      for(var i  = 0; i < 2; i++){
+        circleChars[i] = [];
+      }
+      function getHexagon(arrayIndex, index, thisElement){
+        //Save the characters in an array
+        circleChars[arrayIndex][index] = thisElement.html();
+        //count haow many characters
+        empty_hexa = ''
+        for(i=0; i < thisElement.html().length; i++){
+          empty_hexa = empty_hexa+'7';
+        };
+        // replace by "7" (empty hexagon)
+        thisElement.html(empty_hexa);
+      };
+      function lightIt(thisElement){
+        thisElement.toggleClass("glow_circles");
+      }
+      function titleShow(thisElement){
+        $(this).toggleClass("glow");$(this).prev().toggleClass("glow");
+      }
+
+     $('#blog_image, .menu').hover(function(){
+              //lightIt adds a css class to make it "glow"
+              //getHexagon stores the current hexagon look
+              // unscramble replaces all hexagon by an empty one with the scrumble effect
+              $(".first_circle").each(function(index){lightIt($(this)),getHexagon(0,index, $(this))}).unscramble();
+              rescale1 = setTimeout(function(){ 
+                         $('#menuScaevaPath polygon').stop().animate({
+                            svgTransform:'translate(143, 148) rotate(30 100 86) scale(1,0.866)'},400)},300);
+
+              unscramble2 = setTimeout(function(){$(".second_circle").each(function(index){
+                            lightIt($(this)), getHexagon(1,index, $(this))}).unscramble()},700);
+
+              rescale2 = setTimeout(function(){ 
+                         $('#menuScaevaPath polygon').stop().animate({
+                             svgTransform:'translate(80,95)  rotate(-60 162 141) scale(1.62 ,1.408)'},800)},1400);
+          },
+        function(){
+          clearTimeout(rescale1);
+          clearTimeout(unscramble2);
+          clearTimeout(rescale2);
+
+          $(".first_circle").each(function(index){$(this).html(circleChars[0][index])}).scrambledWriter();
+          $(".second_circle").each(function(index){$(this).html(circleChars[1][index])}).scrambledWriter();
+          $('#menuScaevaPath polygon').stop().animate({
+             svgTransform:'translate(200,200) rotate(0,0,0), scale(0.42, 0.356)'},200);
+        });
+        $('.main_nav_item').hover(function(){
+          console.debug('viyvi');
+          menu_path = $('#'+$(this).attr('data-menu'));
+          titleShow($(this));
+          $(this).addClass("glow");
+          menu_path.css('display', 'block');
+          menu_path.addClass("glow");
+        },function(){
+            $(this).removeClass("glow");
+            menu_path.removeClass("glow");
+        });
+   })
+   </script>

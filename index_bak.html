@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="utf-8"> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+  <script type="text/javascript" src="./jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" src="./jquery.svg.min.js"></script>
+  <script type="text/javascript" src="./jquery.svgdom.min.js"></script>
+  <script type="text/javascript" src="./jquery.svganim.min.js"></script>
+  <script type="text/javascript" src="./jquery.text-effects.tumulte.js"></script>
+	<title>Tumulte</title>
+  <link rel="stylesheet"  href="style.css" type="text/css" />
+	
+</head>
+<body>
+  <img alt="this is Tumulte" src="./tumulte.jpg" id="me"/>
+  <h1 id="main_title">TUMULTE</h1>
+  <div class="font-bg">
+  \=777+\8\+7+\8\8\8\8\8\
+  <br/>
+  \8\77778777778\8\8\
+  <br/>
+  \8777778\=7=78\8\
+  <br/>
+  \+777778\8\8\8\8\
+  <br/>
+  \7777=\8\8<span class="color2">\8\8\8\</span>
+  <br/>
+  <span class="color2">\=7=78\8\8\8\8\8\
+  <br/>
+  \8\8\8\8\8\8\8\8\8\</span>
+  </div>
+  <div class="font-grid">
+  0)777°0@0°7°0@0@0@0@0@0
+  <br/>
+  0@07777@77777@0@0@0
+  <br/>
+  0@77777@0)7)7@0@0
+  <br/>
+  0°77777@0@0@0@0@0
+  <br/>
+  07777)0@0@0@0@0@0
+  <br/>
+  0)7)7@0@0@0@0@0@0
+  <br/>
+  0@0@0@0@0@0@0@0@0@0
+  </div>
+
+
+   <script type="text/javascript">
+   $(function(){
+      var circleChars = new Array(2);
+      for(var i  = 0; i < 2; i++){
+        circleChars[i] = [];
+      }
+      function getHexagon(arrayIndex, index, thisElement){
+        //Save the characters in an array
+        circleChars[arrayIndex][index] = thisElement.html();
+        //count haow many characters
+        empty_hexa = ''
+        for(i=0; i < thisElement.html().length; i++){
+          empty_hexa = empty_hexa+'7';
+        };
+        // replace by "7" (empty hexagon)
+        thisElement.html(empty_hexa);
+      };
+      function lightIt(thisElement){
+        thisElement.toggleClass("glow_circles");
+      }
+      function titleShow(thisElement){
+        $(this).toggleClass("glow");$(this).prev().toggleClass("glow");
+      }
+
+     $('#blog_image, .menu').hover(function(){
+          $(".first_circle").each(function(index){lightIt($(this)),getHexagon(0,index, $(this))}).unscramble();
+          translate1 = setTimeout(function(){ $('#menuScaevaPath polygon').stop().animate({svgTransform:'translate(99,113), scale(1.5,1.299)'},300)},300);
+          unscramble2 = setTimeout(function(){$(".second_circle").each(function(index){lightIt($(this)), getHexagon(1,index, $(this))}).unscramble()},600);
+          translate2 = setTimeout(function(){ $('#menuScaevaPath polygon').stop().animate({svgTransform:'translate(50,70), scale(2,1.732)'},300)},900);
+          },
+        function(){
+          clearTimeout(translate1);
+          clearTimeout(unscramble2);
+          clearTimeout(translate2);
+
+          $(".first_circle").each(function(index){$(this).html(circleChars[0][index])}).scrambledWriter();
+          $(".second_circle").each(function(index){$(this).html(circleChars[1][index])}).scrambledWriter();
+         $('#menuScaevaPath polygon').stop().animate({svgTransform:'translate(200,200) rotate(0,0,0), scale(0.5, 0.433)'},100);
+
+        });
+        $('.menu').hover(function(){titleShow($(this))});
+   })
+   </script>
+<
